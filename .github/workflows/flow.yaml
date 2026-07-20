@@ -8,7 +8,7 @@ jobs:
     
     services:
       mariadb:
-        image: mariadb:12
+        image: mariadb:11.8
         env:
           MYSQL_ROOT_PASSWORD: rootpassword
           MYSQL_DATABASE: probaFeladat_test
