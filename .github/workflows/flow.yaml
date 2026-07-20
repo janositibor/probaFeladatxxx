@@ -1,0 +1,52 @@
+name: probaFeladat With CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    services:
+      mariadb:
+        image: mariadb:12
+        env:
+          MYSQL_ROOT_PASSWORD: rootpassword
+          MYSQL_DATABASE: probaFeladat_test
+          MYSQL_USER: probaFeladatUser
+          MYSQL_PASSWORD: probaFeladatPass
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping --silent"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up JDK 26
+        uses: actions/setup-java@v3
+        with:
+          java-version: '26'
+          distribution: 'temurin'
+          cache: maven
+      
+      - name: Wait for MariaDB to be ready
+        run: |
+          echo "Waiting for MariaDB..."
+          until mysql -h 127.0.0.1 -u root -prootpassword -e "SELECT 1"; do
+            sleep 2
+          done
+      
+      - name: Build with Maven
+        run: mvn verify
+        env:
+          SPRING_DATASOURCE_URL: jdbc:mariadb://127.0.0.1:3306/probaFeladat_test
+          SPRING_DATASOURCE_USERNAME: probaFeladatUser
+          SPRING_DATASOURCE_PASSWORD: probaFeladatPass
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: probaFeladat
+          path: target/*.jar

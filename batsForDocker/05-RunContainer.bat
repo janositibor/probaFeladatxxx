@@ -1,0 +1,1 @@
+docker run -d -e SPRING_DATASOURCE_URL=jdbc:mariadb://probaFeladat-network-mariadb/probaFeladat -e SPRING_DATASOURCE_USERNAME=probaFeladatUser -e SPRING_DATASOURCE_PASSWORD=probaFeladatPass -p 8080:8080 --network probaFeladat-network --name probaFeladat_container probaFeladat > 05-ContainerRun.txt

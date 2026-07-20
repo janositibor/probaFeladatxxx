@@ -1,0 +1,9 @@
+Az 04-DockerBuidImage.bat filet egy könytárral feljebb kell futtatni. Abban a könyvtárban, ahol a dockerfile van.
+
+Check port 8080:
+
+netstat -aon | findstr "8080"
+Taskkill /F /T /IM 8772 (gyerekeket is leállítja)
+
+clear docker:
+docker system prune -a

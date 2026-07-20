@@ -1,0 +1,1 @@
+docker network create --driver bridge probaFeladat-network > 01-NetworkCreated.txt

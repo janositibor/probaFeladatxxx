@@ -1,0 +1,45 @@
+[
+    {
+        "Name": "usedCars-network",
+        "Id": "0cb271142e88cfee9cd022846fbf97321a81f0531ac85d78c4f4e45e56ee8c6a",
+        "Created": "2025-05-04T04:00:44.5601497Z",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": {},
+            "Config": [
+                {
+                    "Subnet": "172.18.0.0/16",
+                    "Gateway": "172.18.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "64d7df7b8ec2cc3b600a49cdc536a276b799ef539e1cedb02fb086ccb097af41": {
+                "Name": "usedCars-network-mariadb",
+                "EndpointID": "3ba09efa9af2183979248a6efae5411921bcbd012451f422418ddd98409191d6",
+                "MacAddress": "02:42:ac:12:00:02",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            },
+            "726f807a133c3f5362ed4f0da4d3ee9d325382307d57b486f2b30daf46f91fd7": {
+                "Name": "usedcars_container",
+                "EndpointID": "207de436ff2cd71641cb74cbbfd7a02ca8f537dab07ba99a3f0417eb10c50d3f",
+                "MacAddress": "02:42:ac:12:00:03",
+                "IPv4Address": "172.18.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]

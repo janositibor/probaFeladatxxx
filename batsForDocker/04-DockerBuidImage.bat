@@ -1,0 +1,1 @@
+docker build -t probaFeladat .. > 04-ApplicationImageBuilt.txt

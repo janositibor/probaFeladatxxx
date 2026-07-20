@@ -1,0 +1,1 @@
+docker network inspect probaFeladat-network > 06-LocationsNet.txt

@@ -1,0 +1,2 @@
+docker stop probaFeladat_container
+docker stop probaFeladat-network-mariadb

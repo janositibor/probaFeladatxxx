@@ -1,0 +1,1 @@
+docker run -d -e MYSQL_DATABASE=probaFeladat -e MYSQL_USER=probaFeladatUser -e MYSQL_PASSWORD=probaFeladatPass -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 3308:3306 --network probaFeladat-network --name probaFeladat-network-mariadb mariadb > 02-DockerRun.txt

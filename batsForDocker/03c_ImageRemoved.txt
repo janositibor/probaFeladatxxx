@@ -1,0 +1,2 @@
+Untagged: usedcars:latest
+Deleted: sha256:47651d2218867b606f7f477ce42c55bd100e72a3c42511b15a1f7891b2eb49c9
