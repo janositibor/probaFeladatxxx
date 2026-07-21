@@ -50,3 +50,23 @@ jobs:
         with:
           name: probaFeladat
           path: target/*.jar
+
+  notify:
+    needs: build
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "GitHub Action Failed"
+          to: janositibor@gmail.com
+          from: "GitHub Actions <janositibor@gmail.com>"
+          body: |
+            A GitHub Actions workflow failed.
+            Repo: ${{ github.repository }}
+            Link: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
